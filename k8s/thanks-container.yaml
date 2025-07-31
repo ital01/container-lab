@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: thanks-container
+spec:
+  containers:
+    - name: thanks-container
+      image: thanks-container
+  restartPolicy: Never

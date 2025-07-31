@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: bye-container
+spec:
+  containers:
+    - name: bye-container
+      image: bye-container
+      command: ["echo", "Tchau, eu sou o bye-container"]
+  restartPolicy: Never
