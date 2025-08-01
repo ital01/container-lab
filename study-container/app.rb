@@ -5,5 +5,5 @@ set :port, 3000
 
 get '/' do
   content_type :json
-  'Study from Ruby!'
+  '{"message": "Study from Ruby!"}'
 end
