@@ -1,6 +1,7 @@
-FROM python:3.8-slim
+FROM ruby:3.3-alpine
 WORKDIR /app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py ./
-CMD ["python", "app.py"]
+COPY Gemfile ./
+RUN bundle install
+COPY app.rb ./
+EXPOSE 3000
+CMD ["ruby", "app.rb"]

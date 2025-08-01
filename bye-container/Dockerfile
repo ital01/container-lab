@@ -1,6 +1,7 @@
-FROM python:3.8-slim
+FROM golang:1.22-alpine
 WORKDIR /app
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-COPY app.py ./
-CMD ["python", "app.py"]
+COPY go.mod ./
+COPY main.go ./
+RUN go build -o app .
+EXPOSE 3000
+CMD ["./app"]

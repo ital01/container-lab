@@ -1,0 +1,44 @@
+services:
+  hello-container:
+    build: ./hello-container
+    ports:
+      - "5001:3000"
+    networks:
+      - app-network
+
+  bye-container:
+    build: ./bye-container
+    ports:
+      - "5002:3000"
+    networks:
+      - app-network
+
+  study-container:
+    build: ./study-container
+    ports:
+      - "5003:3000"
+    networks:
+      - app-network
+
+  thanks-container:
+    build: ./thanks-container
+    ports:
+      - "5004:3000"
+    networks:
+      - app-network
+
+  gateway-container:
+    build: ./gateway-container
+    ports:
+      - "5000:5000"
+    depends_on:
+      - hello-container
+      - bye-container
+      - study-container
+      - thanks-container
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
