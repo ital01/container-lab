@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: study-container
-spec:
-  containers:
-    - name: study-container
-      image: study-container
-  restartPolicy: Never
