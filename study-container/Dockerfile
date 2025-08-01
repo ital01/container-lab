@@ -3,6 +3,6 @@ WORKDIR /app
 RUN apk add --no-cache build-base
 COPY Gemfile ./
 RUN bundle install
-COPY app.rb ./
+COPY . ./
 EXPOSE 3000
-CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "3000"]
+CMD ["bundle", "exec", "rackup", "config.ru", "-o", "0.0.0.0", "-p", "3000"]
